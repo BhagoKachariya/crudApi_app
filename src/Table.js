@@ -3,7 +3,7 @@ import React from 'react';
 const Table = ({ record, edit, editingId, handleEditUpdate, deleteHandler }) => {
   return (
     <div>
-      <h2>Data from API:</h2>
+      <h2>Data</h2>
       <table className="table-auto w-full bg-white border border-gray-300">
         <thead className="thead-dark">
           <tr>
