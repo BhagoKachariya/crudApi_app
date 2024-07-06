@@ -3,7 +3,7 @@ import React from 'react';
 const Table = ({ record, edit, editingId, handleEditUpdate, deleteHandler }) => {
   return (
     <div className="my-6">
-      <h2 className="text-xl font-semibold mb-4">Table Data</h2>
+      <h2 className="text-xl font-semibold mb-4">Table Form Data</h2>
       <div className="overflow-x-auto">
         <table className="table-auto w-full bg-white border border-gray-300">
           <thead>
