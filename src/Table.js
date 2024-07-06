@@ -2,31 +2,41 @@ import React from 'react';
 
 const Table = ({ record, edit, editingId, handleEditUpdate, deleteHandler }) => {
   return (
-    <div>
-      <h2>Table Data</h2>
-      <table className="table-auto w-full bg-white border border-gray-300">
-        <thead className="thead-dark">
-          <tr>
-            <th className='border border-slate-600'>Class ID</th>
-            <th className='border border-slate-600'>Class Name</th>
-            <th className='border border-slate-600'>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {record.map(item => (
-            <tr key={item.classid}>
-              <td className='border border-slate-600'>{item.classid}</td>
-              <td className='border border-slate-600'>{item.class}</td>
-              <td className='border border-slate-600'>
-                <button className="btn btn-primary mr-2" onClick={() => handleEditUpdate(item.classid)}>
-                  {editingId === item.classid && edit ? 'Save' : 'Edit'}
-                </button>
-                <button className="btn btn-danger" onClick={() => deleteHandler(item.classid)}>Delete</button>
-              </td>
+    <div className="my-6">
+      <h2 className="text-xl font-semibold mb-4">Table Data</h2>
+      <div className="overflow-x-auto">
+        <table className="table-auto w-full bg-white border border-gray-300">
+          <thead>
+            <tr className="bg-gray-200">
+              <th className="border border-gray-400 px-4 py-2">Class ID</th>
+              <th className="border border-gray-400 px-4 py-2">Class Name</th>
+              <th className="border border-gray-400 px-4 py-2">Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {record.map(item => (
+              <tr key={item.classid}>
+                <td className="border border-gray-400 px-4 py-2">{item.classid}</td>
+                <td className="border border-gray-400 px-4 py-2">{item.class}</td>
+                <td className="border border-gray-400 px-4 py-2">
+                  <button
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+                    onClick={() => handleEditUpdate(item.classid)}
+                  >
+                    {editingId === item.classid && edit ? 'Save' : 'Edit'}
+                  </button>
+                  <button
+                    className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={() => deleteHandler(item.classid)}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
