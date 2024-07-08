@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Form = ({ handleSubmit, newClassName, setNewClassName }) => {
+const Form = ({ handleSubmit, newClassName, setNewClassName, editingId, handleEditUpdate,newClassid }) => {
   return (
     <div className="mt-6">
-      <h2 className="text-2xl mb-6 font-semibold text-center">Add New Class</h2>
+      <h2 className="text-2xl mb-6 font-semibold text-center">{editingId ? 'Edit Class' : 'Add New Class'}</h2>
       <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div className="mb-4">
           <label htmlFor="className" className="block text-gray-700 text-sm font-bold mb-2">Class Name:</label>
@@ -18,12 +19,23 @@ const Form = ({ handleSubmit, newClassName, setNewClassName }) => {
           />
         </div>
         <div className="flex items-center justify-center">
+        {editingId ? (
+          <button
+            type="button"
+            onClick={() => handleEditUpdate(editingId)}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-2 rounded focus:outline-none focus:shadow-outline"
+          >
+            Edit Class
+          </button>
+        ) : (
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-2 rounded focus:outline-none focus:shadow-outline"
           >
             Add Class
           </button>
+        )}
+        <Link to='/data' className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded no-underline">View Data</Link>
         </div>
       </form>
     </div>
