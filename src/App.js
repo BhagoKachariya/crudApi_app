@@ -4,7 +4,12 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Table from './Table';
-import Form from './Form';
+import Form from './Form';  
+import StackBars from './BarChart';
+import PieeChart from './PieChart';
+import BarChart2 from './BarChart2';
+import PieChart2 from './PieChart2';
+import Pie3d from './Pie3d';
 
 function App() {
   const [record, setRecord] = useState([]);
@@ -115,6 +120,11 @@ function App() {
           handleEditUpdate={handleEditUpdate} />}
           newClassid={newClassid}
         />
+        <Route path='/chart' element={<PieeChart />} />
+        <Route path='/bar' element={<StackBars />} />
+        <Route path='/bar2' element={<BarChart2 />} />
+        <Route path='/pie2' element={<PieChart2 />} />
+        <Route path='/pie3d' element={<Pie3d />} />
       </Routes>
     </div>
   );
